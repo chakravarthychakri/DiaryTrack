@@ -1033,26 +1033,29 @@
 
         <!-- 4. SALES & BILLING (POS) VIEW (MODULE 6) -->
         <section class="view-section" id="view-sales">
-          <div class="section-header">
-            <div class="section-title-wrap">
-              <h1 class="section-title">Point of Sale (POS) & Smart Billing</h1>
-              <p class="section-subtitle">Real-time FEFO inventory deduction, barcode scanner support, multi-mode payment, and thermal receipt generation</p>
+          <!-- POS UNIFIED COMPACT HEADER & HERO BANNER -->
+          <div class="pos-top-header" style="display: flex; align-items: center; justify-content: space-between; padding: 0.6rem 1rem; background: linear-gradient(135deg, #ECFDF5 0%, #E0F2FE 100%); border: 1.5px solid rgba(34, 197, 94, 0.3); border-radius: var(--radius-lg); margin-bottom: 0.75rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04);">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <img src="/images/illustrations/sales-hero.jpg" alt="POS Counter" style="width: 44px; height: 44px; border-radius: 10px; object-fit: cover; object-position: center 25%; border: 1.5px solid #86EFAC; box-shadow: 0 1px 3px rgba(0,0,0,0.08); flex-shrink: 0;">
+              <div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+                  <span style="font-family: 'Poppins', sans-serif; font-size: 1.05rem; font-weight: 800; color: #14532D; letter-spacing: -0.01em;">
+                    Point of Sale (POS) & Smart Billing
+                  </span>
+                  <span style="display: inline-flex; align-items: center; gap: 0.25rem; padding: 0.15rem 0.5rem; background: #DCFCE7; color: #15803D; font-size: 0.68rem; font-weight: 700; border-radius: 9999px; border: 1px solid #86EFAC;">
+                    ⚡ Real-Time FEFO
+                  </span>
+                </div>
+                <div style="font-size: 0.75rem; font-weight: 700; color: #047857; margin-top: 1px;">
+                  DiaryTrack • Milk . Curd . Dairy Delights • Barcode Scanner • Thermal Invoices
+                </div>
+              </div>
             </div>
-            <div class="section-actions">
-              <button class="btn btn-secondary" onclick="salesModule.showPastSalesHistory()">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"></path><circle cx="12" cy="12" r="9"></circle></svg>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <button class="btn btn-secondary" onclick="salesModule.showPastSalesHistory()" style="font-size: 0.8rem; padding: 0.4rem 0.85rem; background: #ffffff;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v4l3 3"></path><circle cx="12" cy="12" r="9"></circle></svg>
                 Invoices History
               </button>
-            </div>
-          </div>
-
-          <!-- SALES HERO ILLUSTRATION BANNER -->
-          <div class="dairy-hero-banner" style="min-height: 110px; margin-bottom: 1rem;">
-            <img src="/images/illustrations/sales-hero.jpg" alt="Dairy POS Billing" class="hero-img-backdrop">
-            <div class="hero-content-wrap" style="padding: 0.85rem 1.5rem;">
-              <span class="hero-tag">⚡ Fast POS Counter</span>
-              <h2 class="hero-title" style="font-size: 1.25rem;">Retail Dairy Billing & POS Counter</h2>
-              <p class="hero-caption" style="font-size: 0.78rem;">Instant Milk & Delights Billing • Automated FEFO Batch Allocation • Thermal Receipts</p>
             </div>
           </div>
 

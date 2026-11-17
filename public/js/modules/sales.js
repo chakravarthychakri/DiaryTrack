@@ -340,7 +340,7 @@ const salesModule = {
       }
 
       html += `
-        <div class="pos-product-card ${isOut ? 'out-of-stock' : ''}">
+        <div class="pos-product-card ${isOut ? 'out-of-stock' : ''}" onclick="salesModule.addToCart(${p.id})" title="${isOut ? 'Out of Stock' : 'Click to add to cart'}">
           <div class="pos-card-visual">
             <span class="pos-card-cat-badge">${p.category_name}</span>
             <span>${icon}</span>
@@ -352,7 +352,7 @@ const salesModule = {
           </div>
           <div class="pos-card-footer">
             <div class="pos-card-price">${ui.formatCurrency(p.selling_price)}</div>
-            <button type="button" class="pos-card-add-btn" onclick="salesModule.addToCart(${p.id})" ${isOut ? 'disabled title="Out of Stock"' : 'title="Add 1 to cart"'}>
+            <button type="button" class="pos-card-add-btn" onclick="event.stopPropagation(); salesModule.addToCart(${p.id})" ${isOut ? 'disabled title="Out of Stock"' : 'title="Add 1 to cart"'}>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
               Add
             </button>

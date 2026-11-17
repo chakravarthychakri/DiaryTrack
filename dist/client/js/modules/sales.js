@@ -8,7 +8,6 @@ const salesModule = {
   activeStockFilter: 'all',
   activeSort: 'default',
   activePaymentMethod: 'Cash',
-  viewMode: 'grid',
   salesConfig: null,
   currentReceiptSale: null,
   pastSalesList: [],
@@ -296,48 +295,9 @@ const salesModule = {
     this.renderProductGrid(filtered);
   },
 
-  setViewMode(mode) {
-    this.viewMode = mode;
-    const gridBtn = document.getElementById('pos-view-grid-btn');
-    const listBtn = document.getElementById('pos-view-list-btn');
-    const container = document.getElementById('pos-product-grid-container');
-
-    if (gridBtn && listBtn) {
-      if (mode === 'grid') {
-        gridBtn.classList.add('active');
-        gridBtn.style.background = 'var(--primary)';
-        gridBtn.style.color = '#fff';
-        listBtn.classList.remove('active');
-        listBtn.style.background = 'transparent';
-        listBtn.style.color = 'var(--text-secondary)';
-      } else {
-        listBtn.classList.add('active');
-        listBtn.style.background = 'var(--primary)';
-        listBtn.style.color = '#fff';
-        gridBtn.classList.remove('active');
-        gridBtn.style.background = 'transparent';
-        gridBtn.style.color = 'var(--text-secondary)';
-      }
-    }
-
-    if (container) {
-      if (mode === 'list') {
-        container.classList.add('list-view');
-      } else {
-        container.classList.remove('list-view');
-      }
-    }
-  },
-
   renderProductGrid(items) {
     const container = document.getElementById('pos-product-grid-container');
     if (!container) return;
-
-    if (this.viewMode === 'list') {
-      container.classList.add('list-view');
-    } else {
-      container.classList.remove('list-view');
-    }
 
     if (!items || !items.length) {
       container.innerHTML = `
@@ -372,15 +332,15 @@ const salesModule = {
 
       let stockBadgeHtml = '';
       if (isOut) {
-        stockBadgeHtml = `<span class="pos-card-stock-tag out-of-stock">❌ Out of Stock</span>`;
+        stockBadgeHtml = `<span class="pos-card-stock-tag" style="color:var(--danger);">❌ Out of Stock</span>`;
       } else if (isLow) {
-        stockBadgeHtml = `<span class="pos-card-stock-tag low-stock">⚠️ Low: ${p.current_stock} ${p.unit}</span>`;
+        stockBadgeHtml = `<span class="pos-card-stock-tag" style="color:var(--warning);">⚠️ Low: ${p.current_stock} ${p.unit}</span>`;
       } else {
-        stockBadgeHtml = `<span class="pos-card-stock-tag in-stock">🟢 ${p.current_stock} ${p.unit} in stock</span>`;
+        stockBadgeHtml = `<span class="pos-card-stock-tag" style="color:var(--success);">🟢 ${p.current_stock} ${p.unit} in stock</span>`;
       }
 
       html += `
-        <div class="pos-product-card ${isOut ? 'out-of-stock' : ''}" onclick="${isOut ? '' : `salesModule.addToCart(${p.id})`}" title="${isOut ? 'Out of stock' : 'Click to add to cart'}">
+        <div class="pos-product-card ${isOut ? 'out-of-stock' : ''}" onclick="salesModule.addToCart(${p.id})" title="${isOut ? 'Out of Stock' : 'Click to add to cart'}">
           <div class="pos-card-visual">
             <span class="pos-card-cat-badge">${p.category_name}</span>
             <span>${icon}</span>
