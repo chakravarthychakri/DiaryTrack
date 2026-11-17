@@ -1,0 +1,48 @@
+{
+  "name": "dairytrack",
+  "version": "1.0.0",
+  "description": "DairyTrack - Complete Dairy Shop Management & Analytics System",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "start:prod": "node server/index.js",
+    "start:ts": "node dist/server.js",
+    "build": "npm run build:all",
+    "build:all": "npm run build:server && npm run build:vite",
+    "build:server": "tsc -p tsconfig.server.json",
+    "build:vite": "vite build",
+    "test:qa": "node scratch/test_module19_qa.js",
+    "migrate": "node scripts/migrate.js",
+    "dev": "node server/index.js",
+    "dev:ts": "node dist/server.js",
+    "dev:vite": "vite"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.119.0",
+    "clsx": "^2.1.1",
+    "cors": "^2.8.5",
+    "exceljs": "^4.4.0",
+    "express": "^4.21.2",
+    "lucide-react": "^1.74.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "react-router-dom": "^7.18.5",
+    "tailwind-merge": "^3.7.0",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.3.5",
+    "@tailwindcss/vite": "^4.3.5",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "autoprefixer": "^10.6.2",
+    "postcss": "^8.5.33",
+    "tailwindcss": "^4.3.5",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8"
+  }
+}
